@@ -1,4 +1,4 @@
-package engine
+package phattcherengine
 
 import (
 	"github.com/UpsilonDiesBackwards/phattcherengine/rendering"
