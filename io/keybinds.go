@@ -8,33 +8,33 @@ import (
 )
 
 var ViewportTransform mgl32.Mat4
-var u = &UserInput{}
+var u = &rendering.UserInput{}
 
 func InputRunner(win *rendering.Window, deltaTime float64) error {
 	c := &rendering.CameraViewport
 	adjCSpeed := deltaTime * float64(c.Speed)
 
-	if ActionState[VP_FORW] {
+	if rendering.ActionState[rendering.VP_FORW] {
 		c.Position = c.Position.Add(c.Front.Mul(adjCSpeed))
 	}
 
-	if ActionState[VP_BACK] {
+	if rendering.ActionState[rendering.VP_BACK] {
 		c.Position = c.Position.Sub(c.Front.Mul(adjCSpeed))
 	}
-	if ActionState[VP_LEFT] {
+	if rendering.ActionState[rendering.VP_LEFT] {
 		c.Position = c.Position.Sub(c.Front.Cross(c.Up).Mul(adjCSpeed))
 	}
-	if ActionState[VP_RGHT] {
+	if rendering.ActionState[rendering.VP_RGHT] {
 		c.Position = c.Position.Add(c.Front.Cross(c.Up).Mul(adjCSpeed))
 	}
-	if ActionState[VP_UP] {
+	if rendering.ActionState[rendering.VP_UP] {
 		c.Position = c.Position.Add(c.Up.Mul(adjCSpeed))
 	}
-	if ActionState[VP_DOWN] {
+	if rendering.ActionState[rendering.VP_DOWN] {
 		c.Position = c.Position.Sub(c.Up.Mul(adjCSpeed))
 	}
 
-	if ActionState[ED_QUIT] {
+	if rendering.ActionState[rendering.ED_QUIT] {
 		fmt.Println("Exiting!")
 		glfw.Terminate()
 	}
@@ -44,6 +44,6 @@ func InputRunner(win *rendering.Window, deltaTime float64) error {
 	c.UpdateDirection(u)
 	u.CheckpointCursorChange()
 
-	InputManager(win, u)
+	rendering.InputManager(win, u)
 	return nil
 }

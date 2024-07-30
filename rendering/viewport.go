@@ -1,7 +1,6 @@
 package rendering
 
 import (
-	"github.com/UpsilonDiesBackwards/phattcherengine/io"
 	"github.com/go-gl/mathgl/mgl32"
 	"github.com/go-gl/mathgl/mgl64"
 	"math"
@@ -37,7 +36,7 @@ var CameraViewport = Camera{
 	Fov: 60,
 }
 
-func (c *Camera) UpdateDirection(u *io.UserInput) {
+func (c *Camera) UpdateDirection(u *UserInput) {
 	cursor := u.CursorChange()
 
 	dx := -c.Sensitivity * cursor[0]

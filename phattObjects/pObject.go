@@ -13,12 +13,12 @@ type Entity struct {
 }
 
 func NewEntity(model *rendering.Model, pos, sca mgl32.Vec3, rot mgl32.Quat) *Entity {
-	var newRot = mgl32.Quat{0, mgl32.Vec3{1, 0, 0}}
+	rot = mgl32.Quat{0, mgl32.Vec3{1, 0, 0}}
 
 	return &Entity{
 		Position: pos,
 		Scale:    sca,
-		Rotation: newRot,
+		Rotation: rot,
 		Model:    model,
 	}
 }

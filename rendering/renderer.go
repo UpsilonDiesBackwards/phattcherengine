@@ -26,6 +26,6 @@ func (r *Renderer) Clear() {
 	gl.Clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
 }
 
-func (r *Renderer) RenderEntities(pobjects []*pObject, win *Window) {
-
-}
+//func (r *Renderer) RenderEntities(pobjects []*phattObjects.Entity, win *Window) {
+//
+//}

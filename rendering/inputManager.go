@@ -1,7 +1,6 @@
-package io
+package rendering
 
 import (
-	"github.com/UpsilonDiesBackwards/phattcherengine/rendering"
 	"github.com/go-gl/glfw/v3.2/glfw"
 	"github.com/go-gl/mathgl/mgl64"
 )
@@ -47,7 +46,7 @@ var keyToActionMap = map[glfw.Key]KeyAction{
 	glfw.KeyEscape: ED_QUIT,
 }
 
-func InputManager(aW *rendering.Window, uI *UserInput) {
+func InputManager(aW *Window, uI *UserInput) {
 	aW.SetKeyCallback(KeyCallBack)
 	aW.SetCursorPosCallback(uI.MouseCallBack)
 }
